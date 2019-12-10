@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+	<META name="viewport" content="width=device-width, initial-scale=1">
+	<META charset="UTF=8">
+	<TITLE>Predicting House Prices</TITLE>
+	<LINK rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<SCRIPT src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></SCRIPT>
+	<SCRIPT src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></SCRIPT>
+	<SCRIPT src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></SCRIPT>
+	<STYLE>
+		.btn-circle.btn-xl {
+		    width: 70px;
+		    height: 70px;
+		    padding: 10px 2px;
+		    border-radius: 35px;
+		    font-size: 17px;
+		    line-height: 1.33;
+		}
+	</STYLE> 
+</HEAD>
+<BODY>
+<DIV class="container">
+		<TR>
+			<td colspan="3" style="background-color:silver;"><div align="center"><H2><font color="black">House Price Estimator</font></H2></div></td>
+			</TR>
+	<TABLE align=center border=0 cellpadding="0">
+
+		<TR>
+			<TD>
+				<table border =1></table>
+				
+				<TR>
+						<TD>
+							<table align=center  cellpadding=10 border=0>
+								<TR><TD align=center>
+									  <button type="button" onclick="calculateHousePrice(this)" id="qual_0" class="btn btn-dark btn-circle btn-xl"><i class="fa fa-check">low</i></button>
+									<button type="button" onclick="calculateHousePrice(this)" id="qual_1" class="btn btn-success btn-circle btn-xl"><i class="fa fa-check">medium</i></button>
+									<button type="button" onclick="calculateHousePrice(this)" id="qual_2" class="btn btn-info btn-circle btn-xl"><i class="fa fa-check">high</i></button>
+									<button type="button" onclick="calculateHousePrice(this)" id="qual_3" class="btn btn-warning btn-circle btn-xl"><i class="fa fa-check">vhigh</i></button>
+									<BR>
+										<H5><font size="4" color="black">Quality</font></H5>
+								</TD></TR></table>
+						</TD>
+							
+				</TR>
+
+					<TD>
+						<table align=center  cellpadding=5 border=0>
+							<TD align=center>
+			 
+							<button type="button" onclick="calculateHousePrice(this)" id="liv_0" class="btn btn-info btn-circle btn-xl"><i class="fa fa-check">small</i></button>
+							<button type="button" onclick="calculateHousePrice(this)" id="liv_1" class="btn btn-warning btn-circle btn-xl"><i class="fa fa-check">medium</i></button>
+							<button type="button" onclick="calculateHousePrice(this)" id="liv_2" class="btn btn-primary btn-circle btn-xl"><i class="fa fa-check">large</i></button>
+							<button type="button" onclick="calculateHousePrice(this)" id="liv_3" class="btn btn-secondary btn-circle btn-xl"><i class="fa fa-check">vlarge</i></button>
+							<BR>
+								<H5><font size="4" color="black">Living Area</font></H5>
+						</TD></table>
+					</TD>
+				
+				</TR>
+				<TR>
+					<TD >			
+							<table align=center  cellpadding=5 border=0>
+								<TR><TD align=center>
+								<button type="button" onclick="calculateHousePrice(this)" id="yr_0" class="btn btn-secondary btn-circle btn-xl"><i class="fa fa-check">1913</i></button>
+								<button type="button" onclick="calculateHousePrice(this)" id="yr_1" class="btn btn-warning btn-circle btn-xl"><i class="fa fa-check">1963</i></button>
+								<button type="button" onclick="calculateHousePrice(this)" id="yr_2" class="btn btn-warning btn-circle btn-xl"><i class="fa fa-check">1981</i></button>
+								<button type="button" onclick="calculateHousePrice(this)" id="yr_3" class="btn btn-danger btn-circle btn-xl"><i class="fa fa-check">2005</i></button>
+								<button type="button" onclick="calculateHousePrice(this)" id="reset" class="btn btn-danger btn-circle btn-xl"><i class="fa fa-check">Reset</i></button>
+								<BR>
+									<H5><font size="4" color="black">Year Built</font></H5>
+							</TD></TR></table>
+
+					</TD>
+
+				</TR>          
+				     <TD>
+						<table align=center  cellpadding=5 border=0>
+							<TR><TD align=center>
+								<button type="button" onclick="calculateHousePrice(this)" id="lot_0" class="btn btn-secondary btn-circle btn-xl"><i class="fa fa-check">small</i></button>
+								<button type="button" onclick="calculateHousePrice(this)" id="lo_1" class="btn btn-warning btn-circle btn-xl"><i class="fa fa-check">medium</i></button>
+								<button type="button" onclick="calculateHousePrice(this)" id="lot_2" class="btn btn-primary btn-circle btn-xl"><i class="fa fa-check">large</i></button>
+								<button type="button" onclick="calculateHousePrice(this)" id="lot_3" class="btn btn-dark btn-circle btn-xl"><i class="fa fa-check">vlarge</i></button>
+								<BR>
+									<H5><font size="4" color="black">Lot Area</font></H5>
+							</TD></TR></table>
+						</TD>
+
+				</TR> 
+
+
+			</TD>
+			<TD>
+				<table align=center  cellpadding=5 border=0>
+				<TR><TD align=center>
+				<img src="../static/images/money_one.png" alt="Bicycle" id="dollars_out"
+				  style='padding:1px; border:0px solid #021a40; width: 400px; height:300px;'>
+				  <BR>
+				  <H5><font size="4" color="black" id="query">Ready</font></H5>
+				</TD></TR></table>
+			  </TD>
+	</table>
+
+</DIV>
+</BODY>
+
+<SCRIPT>
+	var LOT_AREA = {{mean_lot_area}}   	// day is holiday or not
+	var GR_LIV_AREA = {{mean_liv_area}}       		// hour (0 to 23)
+	var YR_BUILT = {{mean_yr_built}}  	// 1:spring
+	var OVERALL_QUAL ={{mean_quality}}  	// 2:summer
+
+	var INTERCEPT = {{model_intercept}}
+	var COEF_LOT = {{model_lot_area}}   	// day is holiday or not
+	var COEF_LIV = {{model_liv_area}}        	// hour (0 to 23)
+	var COEF_YR = {{model_yr_built}}   // 1:spring
+	var COEF_QUAL = {{model_quality}}   // 2:summer
+
+	var liv_area = 'medium' 		// default text for display
+	var quality = 'medium'
+	var built = '1950'
+	var lot = 'medium'
+
+	function calculateHousePrice(elem) {
+		var output = 'Ready';
+		var dol = 11.5;
+		
+
+		// apply new value to stored variables
+		if (elem.id == 'reset') {
+			// reset all values to defaults
+			LOT_AREA = {{mean_lot_area}}   
+			GR_LIV_AREA = {{mean_liv_area}}        
+			YR_BUILT = {{mean_yr_built}}
+			OVERALL_QUAL = {{mean_quality}}    
+			INTERCEPT = {{model_intercept}}
+			COEF_LOT = {{model_lot_area}}    
+			COEF_LIV = {{model_liv_area}}         
+			COEF_YR = {{model_yr_built}}  
+			COEF_QUAL = {{model_quality}} 
+ 
+			liv_area = 'medium'
+			quality = 'medium'
+			built = '1970'
+			lot = 'medium'
+			dollars_out = 'static/images/money_zero.png'
+
+		} else {
+			if (elem.id == 'qual_0') {
+				OVERALL_QUAL = 3
+				quality = 'low'
+			} else if (elem.id == 'qual_1'){
+				OVERALL_QUAL = 5.5
+				quality = 'medium'
+			} else if (elem.id == 'qual_2') {
+				OVERALL_QUAL =	6.5
+				quality = 'high'
+			} else if (elem.id == 'qual_3') {
+				OVERALL_QUAL = 8.5
+				quality = 'vhigh'
+			} else if (elem.id == 'liv_0') {
+				GR_LIV_AREA = 731
+				liv_area = 'small'
+			} else if (elem.id == 'liv_1') {
+				GR_LIV_AREA = 1293
+				liv_area = 'medium'
+			} else if (elem.id == 'liv_2') {
+				GR_LIV_AREA = 1616
+				liv_area = 'large'
+			} else if (elem.id == 'liv_3') {
+				GR_LIV_AREA = 2393
+				liv_area = 'vlarge'
+			} else if (elem.id == 'yr_0') {
+				YR_BUILT = 1913
+				built = '1913'
+			} else if (elem.id == 'yr_1') {
+				YR_BUILT = 1963
+				built = '1963'
+			} else if (elem.id == 'yr_2') {
+				YR_BUILT = 1981
+				built = '1981'	
+			} else if (elem.id == 'yr_3') {
+				YR_BUILT = 2005
+				built = '2005'
+			} else if (elem.id == 'lot_0') {
+				LOT_AREA = 4418
+				lot = 'small'
+			} else if (elem.id == 'lot_1') {
+				LOT_AREA = 8542
+				lot = 'medium'
+			} else if (elem.id == 'lot_2') {
+				LOT_AREA = 10592
+				lot = 'large'
+			} else if (elem.id == 'lot_3') {
+				LOT_AREA = 112395
+				lot = 'vlarge'
+			}
+
+			// recalculate the regression equation
+			dollars = INTERCEPT 
+			+ (LOT_AREA * COEF_LOT)  
+		    + (GR_LIV_AREA * COEF_LIV)  
+		    + (YR_BUILT * COEF_YR)  + (OVERALL_QUAL * COEF_QUAL)  
+
+
+			dol = Math.exp(dollars);
+			dollars = Math.round(dol)
+
+			// figure out which image to show
+			dollars_out = 'static/images/money_sixteen.png'
+		    if (dollars < 0) {
+		    	dollars = 0
+		    	dollars_out = 'static/images/money_zero.png'
+		    } else if (dollars < 100000) {
+		    	dollars_out = 'static/images/money_one.png'
+		    } else if (dollars < 150000) {
+		    	dollars_out = 'static/images/money_four.png'
+		    } else if (dollars < 200000) {
+		    	dollars_out = 'static/images/money_nine.png'}
+
+			// build a new string that is readable with variables select by user
+			output = 'For ' + quality +' quality' + ' + ' + liv_area + ' + ' + built + ' + ' + lot + ' = ' + dollars + ' dollars';
+		}
+		// inject new value and image source directly into the HTML tag
+	    document.getElementById("query").innerHTML = output;
+	    document.getElementById('dollars_out').src = dollars_out
+  
+	}
+</SCRIPT>
+</HTML>
