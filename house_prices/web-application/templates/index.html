@@ -21,73 +21,73 @@
 </HEAD>
 <BODY>
 <DIV class="container">
-		<TR>
-			<td colspan="3" style="background-color:silver;"><div align="center"><H2><font color="black">House Price Estimator</font></H2></div></td>
-			</TR>
+<TR>
+	<td colspan="3" style="background-color:silver;"><div align="center"><H2><font color="black">House Price Estimator</font></H2></div></td>
+	</TR>
 	<TABLE align=center border=0 cellpadding="0">
 
+<TR>
+	<TD>
+		<table border =1></table>
+
 		<TR>
+		<TD>
+		<table align=center  cellpadding=10 border=0>
+			<TR><TD align=center>
+				  <button type="button" onclick="calculateHousePrice(this)" id="qual_0" class="btn btn-dark btn-circle btn-xl"><i class="fa fa-check">low</i></button>
+				<button type="button" onclick="calculateHousePrice(this)" id="qual_1" class="btn btn-success btn-circle btn-xl"><i class="fa fa-check">medium</i></button>
+				<button type="button" onclick="calculateHousePrice(this)" id="qual_2" class="btn btn-info btn-circle btn-xl"><i class="fa fa-check">high</i></button>
+				<button type="button" onclick="calculateHousePrice(this)" id="qual_3" class="btn btn-warning btn-circle btn-xl"><i class="fa fa-check">vhigh</i></button>
+				<BR>
+					<H5><font size="4" color="black">Quality</font></H5>
+			</TD></TR></table>
+	</TD>
+
+		</TR>
+
 			<TD>
-				<table border =1></table>
-				
-				<TR>
-						<TD>
-							<table align=center  cellpadding=10 border=0>
-								<TR><TD align=center>
-									  <button type="button" onclick="calculateHousePrice(this)" id="qual_0" class="btn btn-dark btn-circle btn-xl"><i class="fa fa-check">low</i></button>
-									<button type="button" onclick="calculateHousePrice(this)" id="qual_1" class="btn btn-success btn-circle btn-xl"><i class="fa fa-check">medium</i></button>
-									<button type="button" onclick="calculateHousePrice(this)" id="qual_2" class="btn btn-info btn-circle btn-xl"><i class="fa fa-check">high</i></button>
-									<button type="button" onclick="calculateHousePrice(this)" id="qual_3" class="btn btn-warning btn-circle btn-xl"><i class="fa fa-check">vhigh</i></button>
-									<BR>
-										<H5><font size="4" color="black">Quality</font></H5>
-								</TD></TR></table>
-						</TD>
-							
-				</TR>
+				<table align=center  cellpadding=5 border=0>
+					<TD align=center>
 
-					<TD>
-						<table align=center  cellpadding=5 border=0>
-							<TD align=center>
-			 
-							<button type="button" onclick="calculateHousePrice(this)" id="liv_0" class="btn btn-info btn-circle btn-xl"><i class="fa fa-check">small</i></button>
-							<button type="button" onclick="calculateHousePrice(this)" id="liv_1" class="btn btn-warning btn-circle btn-xl"><i class="fa fa-check">medium</i></button>
-							<button type="button" onclick="calculateHousePrice(this)" id="liv_2" class="btn btn-primary btn-circle btn-xl"><i class="fa fa-check">large</i></button>
-							<button type="button" onclick="calculateHousePrice(this)" id="liv_3" class="btn btn-secondary btn-circle btn-xl"><i class="fa fa-check">vlarge</i></button>
-							<BR>
-								<H5><font size="4" color="black">Living Area</font></H5>
-						</TD></table>
-					</TD>
-				
-				</TR>
-				<TR>
-					<TD >			
-							<table align=center  cellpadding=5 border=0>
-								<TR><TD align=center>
-								<button type="button" onclick="calculateHousePrice(this)" id="yr_0" class="btn btn-secondary btn-circle btn-xl"><i class="fa fa-check">1913</i></button>
-								<button type="button" onclick="calculateHousePrice(this)" id="yr_1" class="btn btn-warning btn-circle btn-xl"><i class="fa fa-check">1963</i></button>
-								<button type="button" onclick="calculateHousePrice(this)" id="yr_2" class="btn btn-warning btn-circle btn-xl"><i class="fa fa-check">1981</i></button>
-								<button type="button" onclick="calculateHousePrice(this)" id="yr_3" class="btn btn-danger btn-circle btn-xl"><i class="fa fa-check">2005</i></button>
-								<button type="button" onclick="calculateHousePrice(this)" id="reset" class="btn btn-danger btn-circle btn-xl"><i class="fa fa-check">Reset</i></button>
-								<BR>
-									<H5><font size="4" color="black">Year Built</font></H5>
-							</TD></TR></table>
+					<button type="button" onclick="calculateHousePrice(this)" id="liv_0" class="btn btn-info btn-circle btn-xl"><i class="fa fa-check">small</i></button>
+		</TD>
 
-					</TD>
+	</TR>
+	<TR>
+<TD >			
+		<table align=center  cellpadding=5 border=0>
+			<TR><TD align=center>
+			<button type="button" onclick="calculateHousePrice(this)" id="yr_0" class="btn btn-secondary btn-circle btn-xl"><i class="fa fa-check">1913</i></button>
+			<button type="button" onclick="calculateHousePrice(this)" id="yr_1" class="btn btn-warning btn-circle btn-xl"><i class="fa fa-check">1963</i></button>
+			<button type="button" onclick="calculateHousePrice(this)" id="yr_2" class="btn btn-warning btn-circle btn-xl"><i class="fa fa-check">1981</i></button>
+			<button type="button" onclick="calculateHousePrice(this)" id="yr_3" class="btn btn-danger btn-circle btn-xl"><i class="fa fa-check">2005</i></button>
+			<button type="button" onclick="calculateHousePrice(this)" id="reset" class="btn btn-danger btn-circle btn-xl"><i class="fa fa-check">Reset</i></button>
+			<BR>
+				<H5><font size="4" color="black">Year Built</font></H5>
+		</TD></TR></table>
 
-				</TR>          
-				     <TD>
-						<table align=center  cellpadding=5 border=0>
-							<TR><TD align=center>
-								<button type="button" onclick="calculateHousePrice(this)" id="lot_0" class="btn btn-secondary btn-circle btn-xl"><i class="fa fa-check">small</i></button>
-								<button type="button" onclick="calculateHousePrice(this)" id="lo_1" class="btn btn-warning btn-circle btn-xl"><i class="fa fa-check">medium</i></button>
-								<button type="button" onclick="calculateHousePrice(this)" id="lot_2" class="btn btn-primary btn-circle btn-xl"><i class="fa fa-check">large</i></button>
-								<button type="button" onclick="calculateHousePrice(this)" id="lot_3" class="btn btn-dark btn-circle btn-xl"><i class="fa fa-check">vlarge</i></button>
-								<BR>
-									<H5><font size="4" color="black">Lot Area</font></H5>
-							</TD></TR></table>
-						</TD>
+</TD>
 
-				</TR> 
+	</TR>          
+<TD>
+	<table align=center  cellpadding=5 border=0>
+		<TR><TD align=center>
+			<button type="button" onclick="calculateHousePrice(this)" id="lot_0" class="btn btn-secondary btn-circle btn-xl"><i class="fa fa-check">small</i></button>
+			<button type="button" onclick="calculateHousePrice(this)" id="lo_1" class="btn btn-warning btn-circle btn-xl"><i class="fa fa-check">medium</i></button>
+			<button type="button" onclick="calculateHousePrice(this)" id="lot_2" class="btn btn-primary btn-circle btn-xl"><i class="fa fa-check">large</i></button>
+			<button type="button" onclick="calculateHousePrice(this)" id="lot_3" class="btn btn-dark btn-circle btn-xl"><i class="fa fa-check">vlarge</i></button>
+			<BR>
+				<H5><font size="4" color="black">Lot Area</font></H5>
+		</TD></TR></table>
+	</TD>
+
+	</TR> 
+			<button type="button" onclick="calculateHousePrice(this)" id="liv_1" class="btn btn-warning btn-circle btn-xl"><i class="fa fa-check">medium</i></button>
+					<button type="button" onclick="calculateHousePrice(this)" id="liv_2" class="btn btn-primary btn-circle btn-xl"><i class="fa fa-check">large</i></button>
+					<button type="button" onclick="calculateHousePrice(this)" id="liv_3" class="btn btn-secondary btn-circle btn-xl"><i class="fa fa-check">vlarge</i></button>
+					<BR>
+						<H5><font size="4" color="black">Living Area</font></H5>
+				</TD></table>
 
 
 			</TD>
