@@ -4,7 +4,8 @@ Carry out data analysis on a police crime dataset.  From the data analysis proud
 ## Project Steps
 Below are the steps taken to complete each component of this project.
 
-### Modeling Apache Cassandra database
+### Data Analysis
+- Download cornwall crime data from [Ploice Data] (https://data.police.uk/data/)
 - Design tables to answer the queries outlined in the [project template](https://github.com/riched158/UdacityDataEngineering/blob/master/datamodelling/project2/Project_1B_%20Project_Template.ipynb) &nbsp;
 - Write Apache Cassandra CREATE KEYSPACE and SET KEYSPACE statements
 - Develop CREATE statement for each of the tables to address each question
