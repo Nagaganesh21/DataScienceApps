@@ -6,7 +6,7 @@ Below are the steps taken to complete each component of this project.
 
 ### Data Analysis
 - Download Cornwall crime data from [Police Data](https://data.police.uk/data/)
-- Clean, analyse and process the crime data.  Write the relevant geo coordinates that can be used bu Google Maps API
+- Clean, analyse and process the crime data using [Jupyter Notebook]  Write the relevant geo coordinates that can be used bu Google Maps API
 
 ### Build Flask App
 - Use Flask, html and javascript to build a Flask Application
