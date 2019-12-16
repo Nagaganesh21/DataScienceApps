@@ -16,6 +16,6 @@ Below are the steps taken to complete each component of this project.
 ### Output of code
 
 Image of app in action running in browser 
-![Map](map1.pg)
+! [Map](map1.pg)
 
 Enough
