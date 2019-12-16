@@ -1,12 +1,12 @@
 ## Project Overview
-Carry out data analysis on a police crime dataset.  From the data analysis prouduce a series of coordinates representing monthly crimes in Cornwall.  These coords are then used with Google Maps api to allow a crime scene data map to be produced in the browser.
+Carry out data analysis on a police crime dataset.  From the data analysis prouduce a series of coordinates representing monthly crimes in Cornwall.  These coords are then used with Google Maps API to allow a crime scene data map to be produced in the browser.
 
 ## Project Steps
 Below are the steps taken to complete each component of this project.
 
 ### Data Analysis
 - Download Cornwall crime data from [Police Data](https://data.police.uk/data/)
-- Clean, analyse and process the crime data using [Jupyter Notebook]  Write the relevant geo coordinates that can be used bu Google Maps API
+- Clean, analyse and process the crime data using Jupyter Notebook.  Write the relevant geo coordinates to a csv file that can be used bu Google Maps API
 
 ### Build Flask App
 - Use Flask, html and javascript to build a Flask Application
@@ -19,4 +19,4 @@ Here is a screenshot showing the busiest month for crime in Cornwall - July when
 
 ![Map](map2.png)
 
-Enough
+
