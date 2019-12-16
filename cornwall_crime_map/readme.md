@@ -13,3 +13,9 @@ Below are the steps taken to complete each component of this project.
 - Get a Google Maps API key: [API Key](https://developers.google.com/maps/documentation/javascript/get-api-key).
 - Integrate the [API key and HeatMap code](https://developers-dot-devsite-v2-prod.appspot.com/maps/documentation/javascript/examples/layer-heatmap) into the Flask application code 
 
+### Output of code
+
+Image of app in action running in browser 
+![Map][map1.pg]
+
+Enough
