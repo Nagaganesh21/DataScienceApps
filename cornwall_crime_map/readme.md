@@ -15,7 +15,8 @@ Below are the steps taken to complete each component of this project.
 
 ### Output of code
 
-Image of app in action running in browser 
-![Map](map1.png)
+Here is a screenshot showing the busiest month for crime in Cornwall - July when hundreds of thousands of people flock to Cornwall for the Summer.
+
+![Map](map2.png)
 
 Enough
