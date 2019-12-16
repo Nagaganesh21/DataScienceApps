@@ -1,5 +1,5 @@
 ## Project Overview
-Carry out data analysis on a police crime dataset.  From the data analysis prouduce a series of coordinates representing monthly crimes in Corwall.  These coords are then used with Google Maps api to allow a crime scene data map to be produced in the browser.
+Carry out data analysis on a police crime dataset.  From the data analysis prouduce a series of coordinates representing monthly crimes in Cornwall.  These coords are then used with Google Maps api to allow a crime scene data map to be produced in the browser.
 
 ## Project Steps
 Below are the steps taken to complete each component of this project.
