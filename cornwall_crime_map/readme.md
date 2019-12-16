@@ -11,5 +11,5 @@ Below are the steps taken to complete each component of this project.
 ### Build Flask App
 - Use Flask, html and javascript to build a Flask Application
 - Get a Google Maps API key: [API Key](https://developers.google.com/maps/documentation/javascript/get-api-key).
-- Integrate the [API key and HeatMap code] (https://developers-dot-devsite-v2-prod.appspot.com/maps/documentation/javascript/examples/layer-heatmap) into the Flask application code 
+- Integrate the [API key and HeatMap code](https://developers-dot-devsite-v2-prod.appspot.com/maps/documentation/javascript/examples/layer-heatmap) into the Flask application code 
 
